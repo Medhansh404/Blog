@@ -52,7 +52,7 @@ app.get("/api/v1/blogs/:id", async (req, res)=>{
 //create post
 app.post("/api/v1/blogs", async (req, res)=>{
     try{
-        const obj = await db.query("insert into blogs ()")
+        const obj = await db.query("insert into blogs (topic, description, category, content) values ($1, $2, $3, $4)", [req.])
     }
     catch(err){}
     
