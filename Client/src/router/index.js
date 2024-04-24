@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import BlogView from '../views/Blogs/BlogsView.vue'
+import BlogView from '../views/Blogs/BlogView.vue'
 import BlogDetails from '../views/Blogs/BlogDetails.vue'
+import SearchView from '@/views/SearchView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,14 +21,21 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {    
-    path: '/blogs',
+    path: '/blogs/:page',
     name: 'blogs',
-    component: BlogView
+    component: BlogView,
+    props: true
     },
     {
       path: '/blogs/:id',
       name: 'blogDetails',
       component: BlogDetails,
+      props: true
+    },
+    {
+      path: '/searchResult/:id',
+      name: 'search',
+      component: SearchView,
       props: true
     }
   ]

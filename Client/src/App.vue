@@ -1,22 +1,43 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import SearchForm from './components/SearchForm.vue'
-
-</script>
-
 <template>
   <header>
     <!-- <div class="background-img"></div> -->
       <nav>
-        <RouterLink to="/">Tech</RouterLink>
+        <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Life</RouterLink>
-        <RouterLink to="/blogs">Blogs</RouterLink>
-        <SearchForm />
+        <router-link :to="{ name: 'blogs', params: { page:'tech' }}">Tech</router-link>
+        <form>
+        <input v-model="text" placeholder="Search here" />
+        <button @click="search">Search</button>
+        </form>
       </nav>
   </header>
 
   <RouterView />
 </template>
+
+<script>
+import { RouterLink, RouterView } from 'vue-router';
+
+export default {
+  data() {
+    return {
+      text: '',
+    };
+  },
+  methods: {
+    search() {
+      this.$router.push({ name: 'search', params: { id: this.text } });
+    },
+  },
+  components: {
+    RouterLink,
+    RouterView,
+  },
+
+};
+</script>
+
+
 
 <style scoped>
 

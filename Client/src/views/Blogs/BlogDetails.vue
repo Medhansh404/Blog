@@ -1,7 +1,11 @@
 <template>
-    <h1>Blog Details Page</h1>
-    <p>The blog id is {{ id }} </p>
-    <p> This is the content {{ this.text }}</p>
+    <h1>{{ text.topic }}</h1>
+
+    <p>  {{ text.description }}</p>
+    <div></div>
+    <p>  {{ text.content }}</p>
+    <div></div>
+
 </template>
 
 <script>
@@ -11,16 +15,16 @@ export default {
     props: ['id'],
     data() {
         return {
-            text: ''
+            text: [],
         }
     },
     mounted() {
         const blogId = this.id
+        const url = 'http://localhost:3000/api/v1/blogs/'+ blogId;
         axios
-        .post('http://localhost:3000/', {id: blogId})
+        .get (url, {id: blogId})
         .then((response) => {
-            this.text = response.data.message; // Assuming you want to display the message from the backend
-            console.log(this.text);
+            this.text = response.data.data.posts[0];
         })
         .catch((error) => console.log(error))
     }
@@ -28,5 +32,5 @@ export default {
 </script>
 
 <style>
-/* Your styles here */
+
 </style>
