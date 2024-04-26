@@ -1,11 +1,8 @@
 <template>
     <div class="about">
-      <h1>Home</h1>
+      <h1>Blogs</h1>
       <div v-for="blog in result" :key="blog.id">
-        <BlogCard />
-        <router-link :to="{ name: 'blogDetails', params: { id: blog.id}}">
-            <h2> {{ blog.topic }} </h2>
-        </router-link>
+        <BlogCard :blog="blog"/>
       </div>
     </div>
   </template>

@@ -1,36 +1,202 @@
 <template>
-    <h1>{{ text.topic }}</h1>
-
-    <p>  {{ text.description }}</p>
-    <div></div>
-    <p>  {{ text.content }}</p>
-    <div></div>
-
-</template>
-
-<script>
-import axios from 'axios';
-
-export default {
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <router-link to="/">
+                  <img src="" alt="Logo">
+                </router-link>
+              </div>
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <li class="current-list-item">
+                    <router-link to="/">Home</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/about">About</router-link>
+                  </li>
+                  <li>
+                    <a href="#">Blogs</a>
+                    <ul class="sub-menu">
+                      <li>
+                        <router-link :to="{ name: 'blogs', params: { page: 'tech' }}">Technology</router-link>
+                      </li>
+                      <li><router-link to="/about">Mindful Living</router-link></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+  
+    <!-- search area -->
+    <div class="search-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="close-btn"><i class="fas fa-window-close"></i></span>
+            <div class="search-bar">
+              <div class="search-bar-tablecell">
+                <h3>Search For:</h3>
+                <input type="text" placeholder="Keywords">
+                <button type="submit">Search <i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end search area -->
+  
+    <!-- single article section -->
+    <div class="mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="single-article-section">
+              <div class="single-article-text">
+                <div class="single-article-bg"></div>
+                <p class="blog-meta">
+                  <span class="author"><i class="fas fa-user"></i> Admin</span>
+                  <span class="date"><i class="fas fa-calendar"></i> {{ text.date }}</span>
+                </p>
+                <h2>{{ text.topic }}</h2>
+                <p>{{ text.content }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end single article section -->
+  
+    <!-- footer -->
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box about-widget">
+              <h2 class="widget-title">About us</h2>
+              <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box get-in-touch">
+              <h2 class="widget-title">Get in Touch</h2>
+              <ul>
+                <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+                <li>support@fruitkha.com</li>
+                <li>+00 111 222 3333</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box pages">
+              <h2 class="widget-title">Pages</h2>
+              <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/about">About</router-link></li>
+                <li><router-link to="/services">Shop</router-link></li>
+                <li><router-link to="/news">News</router-link></li>
+                <li><router-link to="/contact">Contact</router-link></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box subscribe">
+              <h2 class="widget-title">Subscribe</h2>
+              <p>Subscribe to our mailing list to get the latest updates.</p>
+              <form action="index.html">
+                <input type="email" placeholder="Email">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+  
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 text-right col-md-12">
+            <div class="social-icons">
+              <ul>
+                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end copyright -->
+  </template>
+  
+  <script>
+  import axios from 'axios';
+  
+  export default {
     props: ['id'],
     data() {
-        return {
-            text: [],
-        }
+      return {
+        text: [],
+      };
     },
     mounted() {
-        const blogId = this.id
-        const url = 'http://localhost:3000/api/v1/blogs/'+ blogId;
-        axios
-        .get (url, {id: blogId})
+      const blogId = this.id;
+      const url = 'http://localhost:3000/api/v1/blogs/' + blogId;
+      axios
+        .get(url, { id: blogId })
         .then((response) => {
-            this.text = response.data.data.posts[0];
+          this.text = response.data.data.posts[0];
         })
-        .catch((error) => console.log(error))
-    }
-}
-</script>
-
-<style>
-
-</style>
+        .catch((error) => console.log(error));
+    },
+  };
+  </script>
+  
+  <style scoped>
+  
+  
+  /* Add your additional styles here */
+  .top-header-area {
+    background-color: #fff;
+    padding: 20px 0;
+  }
+  
+  .site-logo img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  .main-menu {
+    margin-top: 20px;
+  }
+  
+  .blog-meta {
+    margin-bottom: 20px;
+  }
+  
+  </style>
+  

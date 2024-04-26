@@ -20,34 +20,6 @@ import jQuery from 'jquery';
             
         });
         
-        // isotop inner
-        $(".product-lists").isotope();
-
-        // magnific popup
-        $('.popup-youtube').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
-
-        // light box
-        $('.image-popup-vertical-fit').magnificPopup({
-            type: 'image',
-            closeOnContentClick: true,
-            mainClass: 'mfp-img-mobile',
-            image: {
-                verticalFit: true
-            }
-        });
-      
-
-        // stikcy js
-        $("#sticker").sticky({
-            topSpacing: 0
-        });
 
         //mean menu
         $('.main-menu').meanmenu({
