@@ -1,46 +1,5 @@
 <template>
-    <!-- header -->
-    <div class="top-header-area" id="sticker">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-sm-12 text-center">
-            <div class="main-menu-wrap">
-              <!-- logo -->
-              <div class="site-logo">
-                <router-link to="/">
-                  <img src="" alt="Logo">
-                </router-link>
-              </div>
-              <!-- menu start -->
-              <nav class="main-menu">
-                <ul>
-                  <li class="current-list-item">
-                    <router-link to="/">Home</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/about">About</router-link>
-                  </li>
-                  <li>
-                    <a href="#">Blogs</a>
-                    <ul class="sub-menu">
-                      <li>
-                        <router-link :to="{ name: 'blogs', params: { page: 'tech' }}">Technology</router-link>
-                      </li>
-                      <li><router-link to="/about">Mindful Living</router-link></li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-              <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-              <div class="mobile-menu"></div>
-              <!-- menu end -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end header -->
-  
+
     <!-- search area -->
     <div class="search-area">
       <div class="container">
@@ -81,53 +40,7 @@
       </div>
     </div>
     <!-- end single article section -->
-  
-    <!-- footer -->
-    <div class="footer-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-box about-widget">
-              <h2 class="widget-title">About us</h2>
-              <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-box get-in-touch">
-              <h2 class="widget-title">Get in Touch</h2>
-              <ul>
-                <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-                <li>support@fruitkha.com</li>
-                <li>+00 111 222 3333</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-box pages">
-              <h2 class="widget-title">Pages</h2>
-              <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/about">About</router-link></li>
-                <li><router-link to="/services">Shop</router-link></li>
-                <li><router-link to="/news">News</router-link></li>
-                <li><router-link to="/contact">Contact</router-link></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-box subscribe">
-              <h2 class="widget-title">Subscribe</h2>
-              <p>Subscribe to our mailing list to get the latest updates.</p>
-              <form action="index.html">
-                <input type="email" placeholder="Email">
-                <button type="submit"><i class="fas fa-paper-plane"></i></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end footer -->
+    
   
     <!-- copyright -->
     <div class="copyright">
@@ -176,27 +89,7 @@
   };
   </script>
   
-  <style scoped>
-  
-  
-  /* Add your additional styles here */
-  .top-header-area {
-    background-color: #fff;
-    padding: 20px 0;
-  }
-  
-  .site-logo img {
-    max-width: 150px;
-    height: auto;
-  }
-  
-  .main-menu {
-    margin-top: 20px;
-  }
-  
-  .blog-meta {
-    margin-bottom: 20px;
-  }
-  
+  <style >
+   
   </style>
   
