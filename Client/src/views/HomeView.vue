@@ -29,6 +29,11 @@
               <h1>A blend of life and Tech.</h1>
               <div class="hero-btns">
                 <router-link :to="{ name: 'blogs', params: { page:'tech' }}">Technology</router-link>
+                
+              </div>
+              <div class="hero-btns">
+                <router-link :to="{ name: 'blogs', params: { page:'tech' }}">Mindful Living</router-link>
+                
               </div>
             </div>
           </div>
@@ -75,7 +80,7 @@
 </div>
 </div>
 
-<div class="row">
+<div class="row" id ="row-card">
 <div class="col-lg-4 col-md-6">
   <div class="single-latest-news">
     <a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
@@ -119,14 +124,11 @@
   </div>
 </div>
 </div>
-<div class="row">
-<div class="col-lg-12 text-center">
-  <a href="news.html" class="boxed-btn">View More</a>
+
+
 </div>
-</div>
-</div>
+  
   </div>
-  <!-- end latest news -->
   <RouterView />
 </template>
 
@@ -151,6 +153,102 @@ components: {
 </script>
 
 <style>
-/* Import CSS styles */
+/* style of cards  */
+.single-latest-news {
+  background-color: #fff; 
+  border-radius: 10px; 
+  padding: 20px; 
+  margin: 15px; 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); 
+}
+.latest-news .row {
+  justify-content: space-between;
+  align-items: center; 
 
+}
+.latest-news .row .col-lg-12 {
+  display: flex; 
+  justify-content: space-between; 
+}
+
+#row-card{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.single-latest-news h3 {
+  text-align: center; 
+}
+
+/* centering content */
+.latest-news .section-title h3, 
+.hero-area .hero-text h1, 
+.hero-area .hero-text p  
+ {
+  text-align: center; 
+}
+#view-more-button{
+  justify-content: space-between;
+  align-items: center; 
+}
+
+/*about section */
+
+.abt-section .abt-text {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: right; 
+}
+
+.abt-section .abt-text h2 span.orange-text {
+  text-align: center;
+}
+
+.latest-news .row-card, 
+.abt-section {
+  display: flex;
+  justify-content: center; 
+}
+
+.latest-news .row-card .boxed-btn, 
+.abt-section .boxed-btn {
+  margin: 10px auto; 
+}
+
+/*Hero page styling*/
+.hero-area {
+  padding: 0;
+  height: 100vh;
+  width: 100vw; 
+}
+
+.hero-area .row {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.hero-area .hero-btns {
+  text-align: center; 
+}
+
+.hero-area .hero-btns a {
+  display: inline-block;
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  background-color: orange; 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: bold;
+  transition: all 0.3s ease-in-out; 
+}
+
+.hero-area .hero-btns a:hover {
+  background-color:  rgba(255, 166, 0, 0.796); 
+}
+.boxed-btn.mt-4{
+  align-items: center;
+}
 </style>

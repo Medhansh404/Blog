@@ -132,6 +132,30 @@ app.get("/api/v1/search", async (req, res)=>{
     }
 });
 
+app.get("/api/v1/searchWord", async (req, res)=>{
+    const searchparam = req.query.text; 
+    console.log(req.query.text)
+    if (searchparam) {
+        try {
+            const objs = await db.query(`SELECT * FROM blogs WHERE to_tsvector('english', content) @@ to_tsquery('$1');`, [`%${searchparam}%`]);
+            //console.log(objs) 
+            res.status(200).json({
+                status: "success",
+                results: objs.rows.length,
+                data: {
+                    posts: objs.rows
+                },
+            });
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({
+                status: "error",
+                message: "An error occurred while searching for blog posts."
+            });
+        }
+    }
+});
+
 /*   
         }*/ 
 app.listen(process.env.PORT||3000, ()=>console.log("Server running"));

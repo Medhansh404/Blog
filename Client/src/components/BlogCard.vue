@@ -33,7 +33,7 @@
 }
 
 .latest-news-bg {
-  /* Style the background image or color */
+  
 }
 
 .news-text-box {
